@@ -6,13 +6,17 @@ NbtTag::NbtTag(TagType tagType, const char *name)
 {
     m_tagType = tagType;
 
-    m_name = new char[strlen(name) + 1];
-    strcpy(m_name, name);
+    if(name) {
+        m_name = new char[strlen(name) + 1];
+        strcpy(m_name, name);
+    } else
+        m_name = 0;
 }
 
 NbtTag::~NbtTag()
 {
-    delete [] m_name;
+    if(m_name)
+        delete [] m_name;
 }
 
 NbtTag::TagType NbtTag::tagType() const

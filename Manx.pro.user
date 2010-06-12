@@ -76,12 +76,12 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-kkGvP3YzBd,guid=0b40c9e30b8de9436d0554d34c0e0160</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-wXHbAYa9tb,guid=52f7d81ca358a31e170c014c4c124244</value>
     <value type="QString">DESKTOP_SESSION=default</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
     <value type="QString">EDITOR=vim</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-aJDaUt/S.gpg-agent:1447:1</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-f0wlvF/S.gpg-agent:5242:1</value>
     <value type="QString">GS_LIB=/home/xconstruct/.fonts</value>
     <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/xconstruct/.gtkrc-2.0:/home/xconstruct/.gtkrc-2.0-kde4:/home/xconstruct/.kde/share/config/gtkrc-2.0</value>
     <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/xconstruct/.gtkrc::/home/xconstruct/.kde/share/config/gtkrc</value>
@@ -102,16 +102,16 @@
     <value type="QString">PWD=/home/xconstruct</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
     <value type="QString">QT_PLUGIN_PATH=/home/xconstruct/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString">SESSION_MANAGER=local/indi:@/tmp/.ICE-unix/1602,unix/indi:/tmp/.ICE-unix/1602</value>
+    <value type="QString">SESSION_MANAGER=local/indi:@/tmp/.ICE-unix/5352,unix/indi:/tmp/.ICE-unix/5352</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AGENT_PID=1446</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-LUeGGM1375/agent.1375</value>
+    <value type="QString">SSH_AGENT_PID=5241</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-hDgYLG5170/agent.5170</value>
     <value type="QString">USER=xconstruct</value>
-    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">WINDOWPATH=8</value>
     <value type="QString">XCURSOR_THEME=oxy-white</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=3934940f825bb7615bc404814bd708cd-1275986272.261880-2086302943</value>
+    <value type="QString">XDG_SESSION_COOKIE=3934940f825bb7615bc404814bd708cd-1276265027.808556-261128975</value>
     <value type="QString">XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -131,12 +131,12 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-kkGvP3YzBd,guid=0b40c9e30b8de9436d0554d34c0e0160</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-wXHbAYa9tb,guid=52f7d81ca358a31e170c014c4c124244</value>
     <value type="QString">DESKTOP_SESSION=default</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
     <value type="QString">EDITOR=vim</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-aJDaUt/S.gpg-agent:1447:1</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-f0wlvF/S.gpg-agent:5242:1</value>
     <value type="QString">GS_LIB=/home/xconstruct/.fonts</value>
     <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/xconstruct/.gtkrc-2.0:/home/xconstruct/.gtkrc-2.0-kde4:/home/xconstruct/.kde/share/config/gtkrc-2.0</value>
     <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/xconstruct/.gtkrc::/home/xconstruct/.kde/share/config/gtkrc</value>
@@ -157,16 +157,16 @@
     <value type="QString">PWD=/home/xconstruct</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
     <value type="QString">QT_PLUGIN_PATH=/home/xconstruct/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString">SESSION_MANAGER=local/indi:@/tmp/.ICE-unix/1602,unix/indi:/tmp/.ICE-unix/1602</value>
+    <value type="QString">SESSION_MANAGER=local/indi:@/tmp/.ICE-unix/5352,unix/indi:/tmp/.ICE-unix/5352</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AGENT_PID=1446</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-LUeGGM1375/agent.1375</value>
+    <value type="QString">SSH_AGENT_PID=5241</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-hDgYLG5170/agent.5170</value>
     <value type="QString">USER=xconstruct</value>
-    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">WINDOWPATH=8</value>
     <value type="QString">XCURSOR_THEME=oxy-white</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=3934940f825bb7615bc404814bd708cd-1275986272.261880-2086302943</value>
+    <value type="QString">XDG_SESSION_COOKIE=3934940f825bb7615bc404814bd708cd-1276265027.808556-261128975</value>
     <value type="QString">XDM_MANAGED=method=classic</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
@@ -182,6 +182,53 @@
   <variable>buildconfiguration-Debug-cleanstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-wXHbAYa9tb,guid=52f7d81ca358a31e170c014c4c124244</value>
+    <value type="QString">DESKTOP_SESSION=default</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">EDITOR=vim</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-f0wlvF/S.gpg-agent:5242:1</value>
+    <value type="QString">GS_LIB=/home/xconstruct/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/xconstruct/.gtkrc-2.0:/home/xconstruct/.gtkrc-2.0-kde4:/home/xconstruct/.kde/share/config/gtkrc-2.0</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/xconstruct/.gtkrc::/home/xconstruct/.kde/share/config/gtkrc</value>
+    <value type="QString">HOME=/home/xconstruct</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
+    <value type="QString">KDE_SESSION_UID=1000</value>
+    <value type="QString">KDE_SESSION_VERSION=4</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LANGUAGE=en</value>
+    <value type="QString">LC_ALL=en_US.UTF-8</value>
+    <value type="QString">LC_CTYPE=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LIBGL_DRIVERS_PATH=/usr/lib/fglrx/dri:/usr/lib32/fglrx/dri</value>
+    <value type="QString">LOGNAME=xconstruct</value>
+    <value type="QString">LS_COLORS=</value>
+    <value type="QString">PATH=/usr/bin:/home/xconstruct/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/xconstruct</value>
+    <value type="QString">QTDIR=/usr/share/qt4</value>
+    <value type="QString">QT_PLUGIN_PATH=/home/xconstruct/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString">SESSION_MANAGER=local/indi:@/tmp/.ICE-unix/5352,unix/indi:/tmp/.ICE-unix/5352</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=0</value>
+    <value type="QString">SSH_AGENT_PID=5241</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-hDgYLG5170/agent.5170</value>
+    <value type="QString">USER=xconstruct</value>
+    <value type="QString">WINDOWPATH=8</value>
+    <value type="QString">XCURSOR_THEME=oxy-white</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=3934940f825bb7615bc404814bd708cd-1276265027.808556-261128975</value>
+    <value type="QString">XDM_MANAGED=method=classic</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/files/code/cpp-qt/Manx</value>
    <value key="cleanConfig" type="bool">true</value>
    <valuelist key="makeargs" type="QVariantList">
     <value type="QString">clean</value>

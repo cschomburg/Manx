@@ -20,7 +20,7 @@ public:
     };
 
     NbtTag(TagType tagType = TAG_Unknown, const char *name = "");
-    ~NbtTag();
+    virtual ~NbtTag();
 
     TagType tagType() const;
     const char* name() const;

@@ -18,7 +18,8 @@ SOURCES += main.cpp \
     nbttag/nbttagstring.cpp \
     nbttag/nbttaglist.cpp \
     nbttag/nbttagcompound.cpp \
-    qnbttag.cpp
+    qnbttag.cpp \
+    nbtreader.cpp
 HEADERS += mainwindow.h \
     nbttag/nbttag.h \
     nbttag/nbttagbyte.h \
@@ -32,5 +33,6 @@ HEADERS += mainwindow.h \
     nbttag/nbttaglist.h \
     nbttag/nbttagcompound.h \
     nbttag/nbttags.h \
-    qnbttag.h
+    qnbttag.h \
+    nbtreader.h
 FORMS += mainwindow.ui

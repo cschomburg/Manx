@@ -32,18 +32,18 @@ QVariant QNbtTag::value(NbtTag *tag)
         return QVariant();
 
     switch(tag->tagType()) {
-    case NbtTag::TAG_Byte:          return reinterpret_cast<NbtTagByte *>(tag)->value(); break;
-    case NbtTag::TAG_Short:         return reinterpret_cast<NbtTagShort *>(tag)->value(); break;
-    case NbtTag::TAG_Int:           return reinterpret_cast<NbtTagInt *>(tag)->value(); break;
-    case NbtTag::TAG_Long:          return qint64(reinterpret_cast<NbtTagLong *>(tag)->value()); break;
-    case NbtTag::TAG_Float:         return reinterpret_cast<NbtTagFloat *>(tag)->value(); break;
-    case NbtTag::TAG_Double:        return reinterpret_cast<NbtTagDouble *>(tag)->value(); break;
+    case NbtTag::TAG_Byte:          return dynamic_cast<NbtTagByte *>(tag)->value(); break;
+    case NbtTag::TAG_Short:         return dynamic_cast<NbtTagShort *>(tag)->value(); break;
+    case NbtTag::TAG_Int:           return dynamic_cast<NbtTagInt *>(tag)->value(); break;
+    case NbtTag::TAG_Long:          return qint64(dynamic_cast<NbtTagLong *>(tag)->value()); break;
+    case NbtTag::TAG_Float:         return dynamic_cast<NbtTagFloat *>(tag)->value(); break;
+    case NbtTag::TAG_Double:        return dynamic_cast<NbtTagDouble *>(tag)->value(); break;
     case NbtTag::TAG_Byte_Array: {
-            NbtTagByteArray *array = reinterpret_cast<NbtTagByteArray *>(tag);
+            NbtTagByteArray *array = dynamic_cast<NbtTagByteArray *>(tag);
             return QByteArray(array->value(), array->length());
             break;
         }
-    case NbtTag::TAG_String:        return reinterpret_cast<NbtTagString *>(tag)->value(); break;
+    case NbtTag::TAG_String:        return dynamic_cast<NbtTagString *>(tag)->value(); break;
     default:                        return QVariant(); break;
     }
 }
@@ -92,10 +92,10 @@ NbtTag * QNbtTag::tag(NbtTag *root, const QString& path)
     int index = part.toInt(&ok);
 
     if(ok && root->tagType() == NbtTag::TAG_List) {
-        NbtTagList *list = reinterpret_cast<NbtTagList *>(root);
+        NbtTagList *list = dynamic_cast<NbtTagList *>(root);
         child = list->at(index);
     } else if(root->tagType() == NbtTag::TAG_Compound) {
-        NbtTagCompound *compound = reinterpret_cast<NbtTagCompound *>(root);
+        NbtTagCompound *compound = dynamic_cast<NbtTagCompound *>(root);
         child = compound->at(part.toUtf8());
     }
 
