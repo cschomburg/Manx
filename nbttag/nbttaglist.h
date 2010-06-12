@@ -5,6 +5,8 @@
 
 #include "nbttag.h"
 
+typedef vector<NbtTag *> listVector;
+
 class NbtTagList : public NbtTag
 {
 public:
@@ -12,11 +14,12 @@ public:
     ~NbtTagList();
 
     void add(NbtTag *tag);
+    int length() const;
     NbtTag * at(const int i) const;
     NbtTag::TagType childTagType() const;
 
 private:
-    vector<NbtTag*> m_tags;
+    listVector m_tags;
     NbtTag::TagType m_childTagType;
 };
 

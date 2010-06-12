@@ -21,6 +21,11 @@ void NbtTagList::add(NbtTag *tag)
     m_tags.push_back(tag);
 }
 
+int NbtTagList::length() const
+{
+    return m_tags.size();
+}
+
 NbtTag * NbtTagList::at(int i) const
 {
     return m_tags.at(i);

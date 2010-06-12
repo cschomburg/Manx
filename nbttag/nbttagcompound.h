@@ -15,6 +15,8 @@ struct cmp_str
     }
 };
 
+typedef map<const char *, NbtTag *, cmp_str> compoundMap;
+
 class NbtTagCompound : public NbtTag
 {
 public:
@@ -22,10 +24,12 @@ public:
     ~NbtTagCompound();
 
     void add(NbtTag *tag);
+    int length() const;
     NbtTag * at(const char *name);
+    const compoundMap data() const;
 
 private:
-    map<const char *, NbtTag *, cmp_str> m_tags;
+    compoundMap m_tags;
 };
 
 #endif // NBTTAGCOMPOUND_H

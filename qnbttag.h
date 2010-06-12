@@ -17,15 +17,21 @@ public:
 
     QVariant operator [](const QString& path);
 
+    QVariant value();
     QVariant value(const QString& path = "");
     static QVariant value(NbtTag *root, const QString& path);
     static QVariant value(NbtTag *tag);
 
-    bool has(const QString& path = "");
-    static bool has(NbtTag *root, const QString& path = "");
+    bool has(const QString& path);
+    static bool has(NbtTag *root, const QString& path);
 
     NbtTag * tag(const QString& path);
     static NbtTag * tag(NbtTag *root, const QString& path);
+
+    QStringList childNames();
+    QStringList childNames(const QString& path);
+    static QStringList childNames(NbtTag *root, const QString& path);
+    static QStringList childNames(NbtTag *root);
 
 private:
     NbtTag *m_root;

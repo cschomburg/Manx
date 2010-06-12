@@ -13,7 +13,7 @@ NbtTagCompound::NbtTagCompound(const char *name)
 
 NbtTagCompound::~NbtTagCompound()
 {
-    for(map<const char *, NbtTag *, cmp_str>::iterator it = m_tags.begin(); it != m_tags.end(); ++it)
+    for(compoundMap::iterator it = m_tags.begin(); it != m_tags.end(); ++it)
         delete it->second;
 }
 
@@ -24,7 +24,17 @@ void NbtTagCompound::add(NbtTag *tag)
     m_tags[key] = tag;
 }
 
+int NbtTagCompound::length() const
+{
+    return m_tags.size();
+}
+
 NbtTag * NbtTagCompound::at(const char *name)
 {
     return m_tags[name];
+}
+
+const compoundMap NbtTagCompound::data() const
+{
+    return m_tags;
 }

@@ -137,10 +137,6 @@ NbtTag * NbtReader::readTag(NbtTag::TagType tagType)
 
     NbtTag * tag = 0;
 
-    qDebug(QString::number(tagType).toLatin1());
-    if(name)
-        qDebug(name);
-
     switch(NbtTag::TagType(tagType)) {
     case NbtTag::TAG_Byte: {
             qint8 byte;

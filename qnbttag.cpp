@@ -1,3 +1,5 @@
+#include <QStringList>
+
 #include "qnbttag.h"
 
 QNbtTag::QNbtTag(NbtTag *root, QObject *parent)
@@ -16,14 +18,19 @@ QString QNbtTag::name(NbtTag *tag)
     return QString::fromUtf8(tag->name());
 }
 
-QVariant QNbtTag::value(NbtTag *root, const QString& path)
+QVariant QNbtTag::value()
 {
-    return value(tag(root, path));
+    return value(m_root);
 }
 
 QVariant QNbtTag::value(const QString& path)
 {
     return value(m_root, path);
+}
+
+QVariant QNbtTag::value(NbtTag *root, const QString& path)
+{
+    return value(tag(root, path));
 }
 
 QVariant QNbtTag::value(NbtTag *tag)
@@ -100,4 +107,39 @@ NbtTag * QNbtTag::tag(NbtTag *root, const QString& path)
     }
 
     return tag(child, rest);
+}
+
+QStringList QNbtTag::childNames()
+{
+    return childNames(m_root);
+}
+
+QStringList QNbtTag::childNames(const QString& path)
+{
+    return childNames(m_root, path);
+}
+
+QStringList QNbtTag::childNames(NbtTag *root, const QString& path)
+{
+    return childNames(tag(root, path));
+}
+
+QStringList QNbtTag::childNames(NbtTag *root)
+{
+    QStringList names;
+    if(!root)
+        return names;
+
+    if(root->tagType() == NbtTag::TAG_List) {
+        NbtTagList *list = dynamic_cast<NbtTagList *>(root);
+        for(unsigned int i=0; i < list->length(); i++)
+            names << QString::number(i);
+    } else if(root->tagType() == NbtTag::TAG_Compound) {
+        NbtTagCompound *compound = dynamic_cast<NbtTagCompound *>(root);
+        compoundMap map = compound->data();
+        for(compoundMap::iterator it = map.begin(); it != map.end(); ++it)
+            names << it->first;
+    }
+
+    return names;
 }

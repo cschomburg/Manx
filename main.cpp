@@ -22,7 +22,8 @@ int main(int argc, char *argv[])
     NbtTag *tag = reader.readFile("minecraft/bigtest.nbt");
 
     QNbtTag root(tag);
-    print(  root["nested compound test.ham.value"]    );
+    foreach(QString name, root.childNames("listTest (compound)"))
+        qDebug(name.toLatin1().data());
 
     return 0;
 }
