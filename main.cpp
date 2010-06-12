@@ -4,6 +4,7 @@
 #include "qnbttag.h"
 #include "nbttag/nbttags.h"
 #include "nbtreader.h"
+#include "level/levelindev.h"
 
 void print(const QVariant& variant)
 {
@@ -19,11 +20,14 @@ int main(int argc, char *argv[])
 //    return a.exec();
 
     NbtReader reader;
-    NbtTag *tag = reader.readFile("minecraft/bigtest.nbt");
+    NbtTag *tag = reader.readFile("minecraft/test.mclevel");
 
     QNbtTag root(tag);
-    foreach(QString name, root.childNames("listTest (compound)"))
-        qDebug(name.toLatin1().data());
+
+    if(LevelInDev::isValid(&root))
+        qDebug("yay");
+    else
+        qDebug("noes");
 
     return 0;
 }
