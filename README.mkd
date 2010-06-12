@@ -4,6 +4,7 @@ Manx
 Manx is a cross-plattform reader for the NBT-file format of the sandbox-game ["Minecraft"](http://minecraft.net). It is based on the [QT 4.6](http://qt.nokia.com)-Framework under C++.
 
 Mainly created as a learning experience for me, its current feature set is:
+
 *	Reading of gzipped NBT-files into nested C++ classes
 *	Providing a simple API for access, e.g. tag["list.element1.value"]
 
@@ -18,6 +19,7 @@ Mainly created as a learning experience for me, its current feature set is:
 	-	export to file
 
 And maybe also:
+
 *	NBT exporter
 *	Modifying NBT-values such as inventory items
 *	Map editor
