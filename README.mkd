@@ -5,6 +5,8 @@ Manx is a cross-plattform reader for the NBT-file format of the sandbox-game ["M
 
 Mainly created as a learning experience for me, its current feature set is:
 
+*	Map image exporter for InDev
+	-	blocks displayed as pixels or with real textures
 *	Reading of gzipped NBT-files into nested C++ classes
 *	Providing a simple API for access, e.g. tag["list.element1.value"]
 
@@ -16,7 +18,6 @@ Mainly created as a learning experience for me, its current feature set is:
 	-	treat specific text of signs as the name of a geographic region
 	-	configurable to hide specific block types
 	-	different modes like heightmap, layer-view, ores
-	-	export to file
 
 And maybe also:
 

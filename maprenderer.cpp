@@ -105,13 +105,15 @@ void MapRenderer::run()
                         BlockInfo *block2 = blockTable.value(blockID2, 0);
 
                         if(block2 && !block2->disabled && !block2->transparent) {
-                            renderBlock(painter, block2, x, y, z, details);
+                            qreal depth = qreal(y-yMin)/(yMax-yMin);
+                            renderBlock(painter, block2, x, z, details, depth);
                             break;
                         }
                     }
                 }
 
-                renderBlock(painter, block, x, y, z, details);
+                qreal depth = qreal(y-yMin)/(yMax-yMin);
+                renderBlock(painter, block, x, z, details, depth);
                 break;
             }
             float progress = (float(z) / drawRect.height() + x) / drawRect.width();
@@ -122,7 +124,7 @@ void MapRenderer::run()
     emit renderedImage(image, viewport);
 }
 
-bool MapRenderer::renderBlock(QPainter &painter, BlockInfo *block, int x, int y, int z, int details)
+bool MapRenderer::renderBlock(QPainter &painter, BlockInfo *block, int x, int z, int details, qreal depth)
 {
     if(!block)
         return false;
@@ -131,6 +133,10 @@ bool MapRenderer::renderBlock(QPainter &painter, BlockInfo *block, int x, int y,
         painter.drawImage(QRect(x, z, 1, 1), block->texture);
     else
         painter.fillRect(x, z, 1, 1, block->color);
+
+    if(!block->transparent) {
+        painter.fillRect(x, z, 1, 1, QColor(0, 0, 0, qRound(depth*255)));
+    }
 
     return true;
 }

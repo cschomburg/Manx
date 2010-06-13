@@ -182,7 +182,7 @@ void MainWindow::exportImage()
     ui->progressExport->setEnabled(true);
 
     renderer()->setBlockInfoTable(blocks());
-    renderer()->setDetails(1);
+    renderer()->setDetails(0);
     renderer()->setLevel(level());
     renderer()->render();
 }

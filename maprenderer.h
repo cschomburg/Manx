@@ -30,7 +30,7 @@ signals:
     void progressChanged(float percent);
 
 protected:
-    bool renderBlock(QPainter &painter, BlockInfo *block, int x, int y, int z, int details);
+    bool renderBlock(QPainter &painter, BlockInfo *block, int x, int z, int details, qreal depth);
 
 private:
     MinecraftLevel *m_level;
