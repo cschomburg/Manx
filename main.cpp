@@ -14,9 +14,11 @@ void print(const QVariant& variant)
     qDebug(variant.toString().toLatin1().data());
 }
 
-BlockInfoTable loadBlocks(const QString& blockFile)
+BlockInfoTable loadBlocks(const QString& blockFile, const QString& textureFile)
 {
     BlockInfoTable blocks;
+
+    QPixmap textures(textureFile);
 
     QFile file(blockFile);
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -38,19 +40,20 @@ BlockInfoTable loadBlocks(const QString& blockFile)
             bool ok;
             QColor color = QColor::fromRgba(info.value(4, "ffff0000").toUInt(&ok, 16));
 
-//            QPixmap texture;
-//            if(textureID > 0) {
-//                textureID = textureID-1;
-//                int tX =  textureID % 16;
-//                int tY = floor(textureID / 16);
-//                texture = textures.copy(tX * 16, tY * 16, 16, 16);
-//            }
+            QPixmap texture;
+            if(textureID > 0) {
+                textureID = textureID-1;
+                int tX =  textureID % 16;
+                int tY = floor(textureID / 16);
+                texture = textures.copy(tX * 16, tY * 16, 16, 16);
+            }
 
             BlockInfo *block = new BlockInfo();
             block->blockID = blockID;
             block->title = title;
             block->isTransparent = isTransparent;
             block->color = color;
+            block->texture = texture;
 
             blocks[blockID] = block;
         }
@@ -78,18 +81,25 @@ int main(int argc, char *argv[])
     }
     LevelInDev level(&root);
 
-    BlockInfoTable blocks = loadBlocks("files/blocks.txt");
+    BlockInfoTable blocks = loadBlocks("files/blocks.txt", "files/terrain.png");
 
     MapRenderer renderer;
     renderer.setBlockInfoTable(blocks);
     renderer.setLevel(&level);
+    renderer.setDetails(0);
 
-    QImage image(level.width(), level.length(), QImage::Format_ARGB32);
-    if(!renderer.render(&image)) {
+    QRect viewport(100, 100, 100, 100);
+
+    QImage image(level.width() * 8, level.length() * 8, QImage::Format_ARGB32);
+    if(!renderer.render(&image, viewport)) {
         qDebug("Rendering failed");
         return 1;
     }
     image.save("test.png");
+
+    delete tag;
+    foreach(BlockInfo *block, blocks)
+        delete block;
 
     return 0;
 }
