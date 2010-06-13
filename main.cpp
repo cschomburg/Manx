@@ -29,16 +29,12 @@ BlockInfoTable loadBlocks(const QString& blockFile, const QString& textureFile)
         if(line.at(0) != '#') {
             QStringList info = line.split(",");
 
-            if(info.count() < 5)
+            if(info.count() < 4)
                 continue;
 
             char blockID = info.at(0).toInt();
             QString title = info.at(1);
             int textureID = info.at(2).toInt();
-            bool isTransparent = (info.at(3) == "1");
-
-            bool ok;
-            QColor color = QColor::fromRgba(info.value(4, "ffff0000").toUInt(&ok, 16));
 
             QPixmap texture;
             if(textureID > 0) {
@@ -48,12 +44,25 @@ BlockInfoTable loadBlocks(const QString& blockFile, const QString& textureFile)
                 texture = textures.copy(tX * 16, tY * 16, 16, 16);
             }
 
+            bool ok;
+            QColor color = QColor::fromRgba(info.value(3, "ffff0000").toUInt(&ok, 16));
+
+            bool transparent = false;
+            bool disabled = false;
+            if(info.count() > 4) {
+                QString additional = info.at(4);
+
+                transparent = additional.contains("transparent");
+                disabled = additional.contains("disabled");
+            }
+
             BlockInfo *block = new BlockInfo();
             block->blockID = blockID;
             block->title = title;
-            block->isTransparent = isTransparent;
+            block->transparent = transparent;
             block->color = color;
             block->texture = texture;
+            block->disabled = disabled;
 
             blocks[blockID] = block;
         }
@@ -88,10 +97,9 @@ int main(int argc, char *argv[])
     renderer.setLevel(&level);
     renderer.setDetails(0);
 
-    QRect viewport(100, 100, 100, 100);
-
-    QImage image(level.width() * 8, level.length() * 8, QImage::Format_ARGB32);
-    if(!renderer.render(&image, viewport)) {
+    QImage image(level.width(), level.length(), QImage::Format_ARGB32);
+    image.fill(Qt::transparent);
+    if(!renderer.render(&image)) {
         qDebug("Rendering failed");
         return 1;
     }

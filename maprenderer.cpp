@@ -69,32 +69,56 @@ bool MapRenderer::render(QPaintDevice *device, const QRect& viewport)
     float zScale = float(device->height()) / drawRect.height();
     painter.scale(xScale, zScale);
 
+    int yMax = qMin(m_level->height(), layer);
+    int yMin = qMax(0, layer-depth);
+
     for(int x = 0; x < drawRect.width(); x++) {
         for(int z = 0; z < drawRect.height(); z++) {
-            for(int y = qMin(m_level->height(), layer); y >= qMax(0, layer-depth); y--) {
+            for(int y = yMax, layer; y >= yMin; y--) {
 
                 char blockID = m_level->block(x + xOffset, y, z + zOffset);
                 BlockInfo *block = m_blockTable.value(blockID, 0);
 
-                if(block) {
-                    if(m_details == 1) {
-                        if(!block->texture.isNull())
-                            painter.drawPixmap(x, z, x+1, z+1, block->texture);
-                    } else if(block->color.isValid() && block->color.alpha() > 0) {
-                            painter.fillRect(x, z, x+1, z+1, block->color);
-                    }
 
-                    if(!block->isTransparent)
-                        break;
+                // No block? try next y-layer
+                if(!block || block->disabled)
+                    continue;
+
+                // If the block is transparent, draw the next solid one
+                if(block->transparent) {
+                    for(int y2 = y-1; y2 >= yMin; y2--) {
+                        char blockID2 = m_level->block(x + xOffset, y2, z + zOffset);
+                        BlockInfo *block2 = m_blockTable.value(blockID2, 0);
+
+                        if(block2 && !block2->disabled && !block2->transparent) {
+                            renderBlock(painter, x, z, block2);
+                            break;
+                        }
+                    }
                 }
 
+                renderBlock(painter, x, z, block);
+                break;
             }
             float progress = (float(z) / drawRect.height() + x) / drawRect.width();
             emit progressChanged(progress);
-            qDebug("%.2f%% rendered", progress * 100);
+            //qDebug("%.2f%% rendered", progress * 100);
         }
     }
 
     emit finished();
+    return true;
+}
+
+bool MapRenderer::renderBlock(QPainter &painter, int x, int y, BlockInfo *block)
+{
+    if(!block)
+        return false;
+
+    if(m_details == 1)
+        painter.drawPixmap(x, y, 1, 1, block->texture);
+    else
+        painter.fillRect(x, y, 1, 1, block->color);
+
     return true;
 }

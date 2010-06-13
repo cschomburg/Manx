@@ -1,64 +1,64 @@
 # BlockID,Name,texture-Index,transparent argb-hex-color
-0,"Air",0,1,00ffffff
-1,"Stone",2,0,ff7d7d7d
-2,"Grass",1,0,ff75b049
-3,"Dirt",3,0,ff856042
-4,"Cobblestone",17,0,ff757575
-5,"Wood",5,0,ff9c7f4e
-6,"Sapling (Decorations)",16,1,00ffffff
-7,"Adminium (Bedrock)",18,0,ff535353
-8,"Water",15,0,ff8ba8ff
-9,"Stationary water",15,0,ff8ba8ff
-10,"Lava",31,0,fff54100
-11,"Stationary lava",31,0,fff54100
-12,"Sand",19,0,ffd9d29e
-13,"Gravel",20,0,ff887e7d
-14,"Gold (Ore)",33,0,ffe8a52e
-15,"Iron (Ore)",34,0,ffbfbfbf
-16,"Coal (Ore)",35,0,ff4c4c4c
-17,"Tree trunk",22,0,ff9a7d4d
-18,"Leaves",53,0,ff89d87d
-19,"Sponge",49,0,ffb6b639
-20,"Glass",50,1,ffffffff
-21,"Red (Cloth)",65,0,ffdd3131
-22,"Orange (Cloth)",66,0,ffdd8731
-23,"Yellow (Cloth)",67,0,ffdddd31
-24,"Light green (Cloth)",68,0,ff87dd31
-25,"Green (Cloth)",69,0,ff31dd31
-26,"Aqua Green (Cloth)",70,0,ff31dd87
-27,"Cyan (Cloth)",71,0,ff31dddd
-28,"Blue (Cloth)",72,0,ff68a2dd
-29,"Purple (Cloth)",73,0,ff7777dd
-30,"Indigo (Cloth)",74,0,ff8731dd
-31,"Violet (Cloth)",75,0,ffae49dd
-32,"Magenta (Cloth)",76,0,ffdd31dd
-33,"Pink (Cloth)",77,0,ffdd3187
-34,"Black (Cloth)",78,0,ff4c4c4c
-35,"Gray (Cloth)",79,0,ff8e8e8e
-36,"White (Cloth)",80,0,ffdddddd
-37,"Yellow flower (Decorations)",14,1,00ffffff
-38,"Red rose (Decorations)",13,1,00ffffff
-39,"Red Mushroom",29,1,00ffffff
-40,"Brown Mushroom",30,1,00ffffff
-41,"Gold (Block)",24,0,fff9ec4d
-42,"Iron (Block)",23,0,ffe6e6e6
-43,"Double Stair",7,0,ff9f9f9f
-44,"Stair",7,0,ff9f9f9f
-45,"Brick",8,0,ffc56a4f
-46,"TNT",10,0,ff82412f
-47,"Bookcase",36,0,ff6b5839
-48,"Mossy Cobblestone",37,0,ff5a6c5a
-49,"Obsidian",38,0,ff14121d
-50,"Torch",81,1,00ffffff
-51,"Fire block",31,0,fff54100
-52,"Infinite water source",15,0,ff8ba8ff
-53,"Infinite lava source",31,0,fff54100
-54,"Chest",26,0,9a7d4d
-55,"Gear",62,1,00ffffff
-56,"Diamond gem",51,0,22a496
-57,"Diamond (block)",25,0,63dbd5
-58,"Crafting table",28,0,7a5a29
-59,"Crops",96,1,919b5e
-60,"Soil",87,0,4b280d
-61,"Furnace",44,0,4e4e4e
-62,"Burning Furnace",44,0,4e4e4e
+0,Air,0,00ffffff,disabled|transparent
+1,Stone,2,ff7d7d7d
+2,Grass,1,ff75b049
+3,Dirt,3,ff856042
+4,Cobblestone,17,ff757575
+5,Wood,5,ff9c7f4e
+6,Sapling (Decorations),16,00ffffff,transparent
+7,Adminium (Bedrock),18,ff535353
+8,Water,15,808ba8ff,transparent
+9,Stationary water,15,808ba8ff,transparent
+10,Lava,31,fff54100
+11,Stationary lava,31,fff54100
+12,Sand,19,ffd9d29e
+13,Gravel,20,ff887e7d
+14,Gold (Ore),33,ffe8a52e
+15,Iron (Ore),34,ffbfbfbf
+16,Coal (Ore),35,ff4c4c4c
+17,Tree trunk,22,ff9a7d4d
+18,Leaves,53,8089d87d,transparent
+19,Sponge,49,ffb6b639
+20,Glass,50,ffffffff,transparent
+21,Red (Cloth),65,ffdd3131
+22,Orange (Cloth),66,ffdd8731
+23,Yellow (Cloth),67,ffdddd31
+24,Light green (Cloth),68,ff87dd31
+25,Green (Cloth),69,ff31dd31
+26,Aqua Green (Cloth),70,ff31dd87
+27,Cyan (Cloth),71,ff31dddd
+28,Blue (Cloth),72,ff68a2dd
+29,Purple (Cloth),73,ff7777dd
+30,Indigo (Cloth),74,ff8731dd
+31,Violet (Cloth),75,ffae49dd
+32,Magenta (Cloth),76,ffdd31dd
+33,Pink (Cloth),77,ffdd3187
+34,Black (Cloth),78,ff4c4c4c
+35,Gray (Cloth),79,ff8e8e8e
+36,White (Cloth),80,ffdddddd
+37,Yellow flower (Decorations),14,00ffffff,transparent
+38,Red rose (Decorations),13,00ffffff,transparent
+39,Red Mushroom,29,00ffffff,transparent
+40,Brown Mushroom,30,00ffffff,transparent
+41,Gold (Block),24,fff9ec4d
+42,Iron (Block),23,ffe6e6e6
+43,Double Stair,7,ff9f9f9f
+44,Stair,7,ff9f9f9f
+45,Brick,8,ffc56a4f
+46,TNT,10,ff82412f
+47,Bookcase,36,ff6b5839
+48,Mossy Cobblestone,37,ff5a6c5a
+49,Obsidian,38,ff14121d
+50,Torch,81,00ffffff,transparent
+51,Fire block,31,fff54100
+52,Infinite water source,15,808ba8ff,transparent
+53,Infinite lava source,31,fff54100
+54,Chest,26,9a7d4d
+55,Gear,62,00ffffff,transparent
+56,Diamond gem,51,22a496
+57,Diamond (block),25,63dbd5
+58,Crafting table,28,7a5a29
+59,Crops,96,919b5e,transparent
+60,Soil,87,4b280d
+61,Furnace,44,4e4e4e
+62,Burning Furnace,44,4e4e4e

@@ -11,8 +11,9 @@ struct BlockInfo
     char blockID;
     QString title;
     QPixmap texture;
-    bool isTransparent;
     QColor color;
+    bool transparent;
+    bool disabled;
 };
 
 typedef QHash<char, BlockInfo *> BlockInfoTable;

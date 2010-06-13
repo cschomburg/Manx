@@ -6,6 +6,7 @@
 #include "blockinfo.h"
 
 class QRect;
+class QPainter;
 class QPaintDevice;
 class MinecraftLevel;
 
@@ -27,6 +28,9 @@ signals:
     void started();
     void finished();
     void progressChanged(float percent);
+
+protected:
+    bool renderBlock(QPainter& painter, int x, int y, BlockInfo *block);
 
 private:
     MinecraftLevel *m_level;
