@@ -10,7 +10,7 @@ struct BlockInfo
 {
     char blockID;
     QString title;
-    QPixmap texture;
+    QImage texture;
     QColor color;
     bool transparent;
     bool disabled;

@@ -6,7 +6,7 @@
 #include "maprenderer.h"
 
 MapRenderer::MapRenderer(QObject *parent) :
-    QObject(parent)
+    QThread(parent)
 {
     m_layer = -1;
     m_depth = -1;
@@ -38,46 +38,60 @@ void MapRenderer::setDetails(int details)
     m_details = details;
 }
 
-bool MapRenderer::render(QPaintDevice *device, const QRect& viewport)
+void MapRenderer::render(const QRect& viewport)
 {
-    if(!m_level || m_blockTable.isEmpty())
-        return false;
+    m_viewport = viewport;
 
-    emit started();
+    if(!isRunning())
+        start(LowPriority);
+}
 
-    QRect levelRect(0, 0, m_level->width(), m_level->length());
-    QRect drawRect;
+void MapRenderer::run()
+{
+    // Copy member variables
+    // We're running threaded, after all
+    MinecraftLevel *level = m_level;
 
-    if(viewport.isEmpty())
-        drawRect = levelRect;
-    else
-        drawRect = viewport.intersected(levelRect);
+    QRect viewport = m_viewport;
 
     int layer = m_layer;
-    if(layer == -1)
-        layer = m_level->height();
-
     int depth = m_depth;
-    if(depth == -1)
-        depth = m_level->height();
+    int details = m_details;
+    BlockInfoTable blockTable = m_blockTable;
 
+    // Calculate variables
+    QRect levelRect(0, 0, level->width(), level->length());
+    if(viewport.isEmpty())
+       viewport = levelRect;
+    QRect drawRect = viewport.intersected(levelRect);
+    if(layer == -1)
+        layer = level->height();
+    if(depth == -1)
+        depth = level->height();
     int xOffset = drawRect.left();
     int zOffset = drawRect.top();
 
-    QPainter painter(device);
-    float xScale = float(device->width()) / drawRect.width();
-    float zScale = float(device->height()) / drawRect.height();
-    painter.scale(xScale, zScale);
+    QImage image;
+    if(details == 1)
+        image = QImage(viewport.size() * 8, QImage::Format_ARGB32);
+    else
+        image = QImage(viewport.size(), QImage::Format_ARGB32);
+    image.fill(Qt::transparent);
 
-    int yMax = qMin(m_level->height(), layer);
+    QPainter painter(&image);
+
+    if(details == 1)
+        painter.scale(8, 8);
+
+    int yMax = qMin(level->height(), layer);
     int yMin = qMax(0, layer-depth);
 
     for(int x = 0; x < drawRect.width(); x++) {
         for(int z = 0; z < drawRect.height(); z++) {
-            for(int y = yMax, layer; y >= yMin; y--) {
+            for(int y = yMax; y >= yMin; y--) {
 
-                char blockID = m_level->block(x + xOffset, y, z + zOffset);
-                BlockInfo *block = m_blockTable.value(blockID, 0);
+                char blockID = level->block(x + xOffset, y, z + zOffset);
+                BlockInfo *block = blockTable.value(blockID, 0);
 
 
                 // No block? try next y-layer
@@ -87,38 +101,36 @@ bool MapRenderer::render(QPaintDevice *device, const QRect& viewport)
                 // If the block is transparent, draw the next solid one
                 if(block->transparent) {
                     for(int y2 = y-1; y2 >= yMin; y2--) {
-                        char blockID2 = m_level->block(x + xOffset, y2, z + zOffset);
-                        BlockInfo *block2 = m_blockTable.value(blockID2, 0);
+                        char blockID2 = level->block(x + xOffset, y2, z + zOffset);
+                        BlockInfo *block2 = blockTable.value(blockID2, 0);
 
                         if(block2 && !block2->disabled && !block2->transparent) {
-                            renderBlock(painter, x, z, block2);
+                            renderBlock(painter, block2, x, y, z, details);
                             break;
                         }
                     }
                 }
 
-                renderBlock(painter, x, z, block);
+                renderBlock(painter, block, x, y, z, details);
                 break;
             }
             float progress = (float(z) / drawRect.height() + x) / drawRect.width();
             emit progressChanged(progress);
-            //qDebug("%.2f%% rendered", progress * 100);
         }
     }
 
-    emit finished();
-    return true;
+    emit renderedImage(image, viewport);
 }
 
-bool MapRenderer::renderBlock(QPainter &painter, int x, int y, BlockInfo *block)
+bool MapRenderer::renderBlock(QPainter &painter, BlockInfo *block, int x, int y, int z, int details)
 {
     if(!block)
         return false;
 
-    if(m_details == 1)
-        painter.drawPixmap(x, y, 1, 1, block->texture);
+    if(details == 1)
+        painter.drawImage(QRect(x, z, 1, 1), block->texture);
     else
-        painter.fillRect(x, y, 1, 1, block->color);
+        painter.fillRect(x, z, 1, 1, block->color);
 
     return true;
 }

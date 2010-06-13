@@ -2,6 +2,7 @@
 #define NBTTAGS_H
 
 #include "nbttag.h"
+
 #include "nbttagbyte.h"
 #include "nbttagbytearray.h"
 #include "nbttagcompound.h"

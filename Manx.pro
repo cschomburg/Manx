@@ -39,6 +39,7 @@ HEADERS += mainwindow.h \
     nbtreader.h \
     level/minecraftlevel.h \
     level/levelindev.h \
-    maprenderer.h \
-    blockinfo.h
+    blockinfo.h \
+    level/levels.h \
+    maprenderer.h
 FORMS += mainwindow.ui

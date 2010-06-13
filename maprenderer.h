@@ -1,22 +1,21 @@
 #ifndef MAPRENDERER_H
 #define MAPRENDERER_H
 
-#include <QObject>
+#include <QThread>
 
 #include "blockinfo.h"
 
 class QRect;
 class QPainter;
-class QPaintDevice;
 class MinecraftLevel;
 
-class MapRenderer : public QObject
+class MapRenderer : public QThread
 {
 Q_OBJECT
 public:
     explicit MapRenderer(QObject *parent = 0);
 
-    bool render(QPaintDevice *device, const QRect& viewport = QRect());
+    void render(const QRect& viewport = QRect());
     void setLevel(MinecraftLevel *level);
     void setBlockInfoTable(const BlockInfoTable& blockTable);
 
@@ -24,17 +23,20 @@ public:
     void setLayer(int layer = -1);
     void setDetails(int details = 0);
 
+    void run();
+
 signals:
-    void started();
-    void finished();
+    void renderedImage(const QImage& image, const QRect& viewport);
     void progressChanged(float percent);
 
 protected:
-    bool renderBlock(QPainter& painter, int x, int y, BlockInfo *block);
+    bool renderBlock(QPainter &painter, BlockInfo *block, int x, int y, int z, int details);
 
 private:
     MinecraftLevel *m_level;
     BlockInfoTable m_blockTable;
+
+    QRect m_viewport;
 
     int m_depth;
     int m_layer;
