@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     nbttag/nbttagcompound.cpp \
     qnbttag.cpp \
     nbtreader.cpp \
-    level/levelindev.cpp
+    level/levelindev.cpp \
+    maprenderer.cpp
 HEADERS += mainwindow.h \
     nbttag/nbttag.h \
     nbttag/nbttagbyte.h \
@@ -37,5 +38,7 @@ HEADERS += mainwindow.h \
     qnbttag.h \
     nbtreader.h \
     level/minecraftlevel.h \
-    level/levelindev.h
+    level/levelindev.h \
+    maprenderer.h \
+    blockinfo.h
 FORMS += mainwindow.ui

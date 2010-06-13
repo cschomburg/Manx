@@ -8,7 +8,7 @@ LevelInDev::LevelInDev(QNbtTag *root)
 {
     m_root = root;
 
-    m_width = m_root->value("Map.Height").toInt();
+    m_width = m_root->value("Map.Width").toInt();
     m_height = m_root->value("Map.Height").toInt();
     m_length = m_root->value("Map.Length").toInt();
 
@@ -40,7 +40,7 @@ int LevelInDev::length()
 
 char LevelInDev::block(int x, int y, int z)
 {
-    if(x >= width() || y >= height() || z >= length())
+    if(x >= width() || z >= length() || y >= height())
         return -1;
 
     int pos = x + (y * length() + z) * width();
