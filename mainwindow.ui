@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Manx</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -202,17 +202,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="action_Open_File"/>
     <addaction name="action_Quit"/>
    </widget>
-   <widget class="QMenu" name="menu_Map">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Map</string>
-    </property>
-    <addaction name="action_Export_to_Image"/>
-   </widget>
    <addaction name="menu_File"/>
-   <addaction name="menu_Map"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

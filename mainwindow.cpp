@@ -16,7 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    loadBlocks("files/blocks.txt", "files/terrain.png");
+    QString appPath = qApp->applicationDirPath();
+    loadBlocks(appPath + "/files/blocks.txt", appPath + "/files/terrain.png");
 
     m_tag = 0;
     m_qTag = 0;
@@ -26,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->action_Open_File, SIGNAL(triggered()), this, SLOT(openFile()));
     connect(ui->action_Quit, SIGNAL(triggered()), this, SLOT(close()));
-    connect(ui->action_Export_to_Image, SIGNAL(triggered()), this, SLOT(exportImage()));
 
     connect(ui->btnOpen, SIGNAL(clicked()), this, SLOT(openFile()));
     connect(ui->btnExport, SIGNAL(clicked()), this, SLOT(exportImage()));
@@ -169,7 +169,6 @@ void MainWindow::openFile()
 void MainWindow::onLevelChanged()
 {
     bool hasLevel = level();
-    ui->menu_Map->setEnabled(hasLevel);
     ui->btnExport->setEnabled(hasLevel);
 }
 

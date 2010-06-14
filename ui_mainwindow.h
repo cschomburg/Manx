@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Jun 14 02:33:39 2010
+** Created: Mon Jun 14 17:22:34 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -49,7 +49,6 @@ public:
     QLabel *label_3;
     QMenuBar *menuBar;
     QMenu *menu_File;
-    QMenu *menu_Map;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -126,9 +125,6 @@ public:
         menuBar->setGeometry(QRect(0, 0, 725, 21));
         menu_File = new QMenu(menuBar);
         menu_File->setObjectName(QString::fromUtf8("menu_File"));
-        menu_Map = new QMenu(menuBar);
-        menu_Map->setObjectName(QString::fromUtf8("menu_Map"));
-        menu_Map->setEnabled(false);
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -138,10 +134,8 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menu_File->menuAction());
-        menuBar->addAction(menu_Map->menuAction());
         menu_File->addAction(action_Open_File);
         menu_File->addAction(action_Quit);
-        menu_Map->addAction(action_Export_to_Image);
 
         retranslateUi(MainWindow);
 
@@ -153,7 +147,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Manx", 0, QApplication::UnicodeUTF8));
         action_Open_File->setText(QApplication::translate("MainWindow", "&Open File", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         action_Open_File->setToolTip(QApplication::translate("MainWindow", "Open a new Minecraft File", 0, QApplication::UnicodeUTF8));
@@ -180,7 +174,6 @@ public:
         label_3->setText(QApplication::translate("MainWindow", "3.", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Exporter", 0, QApplication::UnicodeUTF8));
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", 0, QApplication::UnicodeUTF8));
-        menu_Map->setTitle(QApplication::translate("MainWindow", "&Map", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
