@@ -1,10 +1,9 @@
-# Shows only ores and hides the whole rest
-#
-# BlockID,Name,texture-Index,transparent argb-hex-color
+## Shows only ores and hides the whole rest
+
 14,Gold (Ore),33,ffe8a52e
 15,Iron (Ore),34,ffbfbfbf
 16,Coal (Ore),35,ff4c4c4c
 41,Gold (Block),24,fff9ec4d
 42,Iron (Block),23,ffe6e6e6
-56,Diamond gem,51,22a496
-57,Diamond (block),25,63dbd5
+56,Diamond gem,51,ff22a496
+57,Diamond (block),25,ff63dbd5

@@ -59,12 +59,12 @@
 51,Fire block,31,fff54100
 52,Infinite water source,15,80265cff,transparent
 53,Infinite lava source,31,fff54100
-54,Chest,26,9a7d4d
+54,Chest,26,ff9a7d4d
 55,Gear,62,00ffffff,transparent
-56,Diamond gem,51,22a496
-57,Diamond (block),25,63dbd5
-58,Crafting table,28,7a5a29
-59,Crops,96,919b5e,transparent
-60,Soil,87,4b280d
-61,Furnace,44,4e4e4e
-62,Burning Furnace,44,4e4e4e
+56,Diamond gem,51,ff22a496
+57,Diamond (block),25,ff63dbd5
+58,Crafting table,28,ff7a5a29
+59,Crops,96,ff919b5e,transparent
+60,Soil,87,ff4b280d
+61,Furnace,44,ff4e4e4e
+62,Burning Furnace,44,ff4e4e4e

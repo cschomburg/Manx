@@ -1,0 +1,66 @@
+##	This file provides a simple grayscale heightmap
+##  Actually all blocks are rendered white, but with the depth-setting it works!
+
+# 0,Air,0,00ffffff,transparent
+1,Stone,2,ffffffff
+2,Grass,1,ffffffff
+3,Dirt,3,ffffffff
+4,Cobblestone,17,ffffffff
+5,Wood,5,ffffffff
+# 6,Sapling (Decorations),16,00ffffff,transparent
+7,Adminium (Bedrock),18,ffffffff
+# 8,Water,15,80265cff,transparent
+# 9,Stationary water,15,80265cff,transparent
+10,Lava,31,ffffffff
+11,Stationary lava,31,ffffff
+12,Sand,19,ffffffff
+13,Gravel,20,ffffffff
+14,Gold (Ore),33,ffffffff
+15,Iron (Ore),34,ffffffff
+16,Coal (Ore),35,ffffffff
+17,Tree trunk,22,ffffffff
+# 18,Leaves,53,8089d87d,transparent
+19,Sponge,49,ffffffff
+# 20,Glass,50,ffffffff,transparent
+21,Red (Cloth),65,ffffffff
+22,Orange (Cloth),66,ffffffff
+23,Yellow (Cloth),67,ffffffff
+24,Light green (Cloth),68,ffffffff
+25,Green (Cloth),69,ffffffff
+26,Aqua Green (Cloth),70,ffffffff
+27,Cyan (Cloth),71,ffffffff
+28,Blue (Cloth),72,ffffffff
+29,Purple (Cloth),73,ffffffff
+30,Indigo (Cloth),74,ffffffff
+31,Violet (Cloth),75,ffffffff
+32,Magenta (Cloth),76,ffffffff
+33,Pink (Cloth),77,ffffffff
+34,Black (Cloth),78,ffffffff
+35,Gray (Cloth),79,ffffffff
+36,White (Cloth),80,ffffffff
+# 37,Yellow flower (Decorations),14,00ffffff,transparent
+# 38,Red rose (Decorations),13,00ffffff,transparent
+# 39,Red Mushroom,29,00ffffff,transparent
+# 40,Brown Mushroom,30,00ffffff,transparent
+41,Gold (Block),24,ffffff
+42,Iron (Block),23,ffffffff
+43,Double Stair,7,ffffffff
+44,Stair,7,ffffffff
+45,Brick,8,ffffffff
+46,TNT,10,ffffffff
+47,Bookcase,36,ffffffff
+48,Mossy Cobblestone,37,ffffffff
+49,Obsidian,38,ffffffff
+# 50,Torch,81,00ffffff,transparent
+51,Fire block,31,ffffffff
+# 52,Infinite water source,15,80265cff,transparent
+# 53,Infinite lava source,31,fff54100
+54,Chest,26,ffffffff
+# 55,Gear,62,00ffffff,transparent
+56,Diamond gem,51,ffffffff
+57,Diamond (block),25,ffffffff
+58,Crafting table,28,ffffffff
+# 59,Crops,96,919b5e,transparent
+60,Soil,87,ffffffff
+61,Furnace,44,ffffffff
+62,Burning Furnace,44,ffffffff
