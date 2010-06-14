@@ -1,5 +1,11 @@
-# BlockID,Name,texture-Index,transparent argb-hex-color
-0,Air,0,00ffffff,disabled|transparent
+##	This file shows the default setting with all current blocks
+##	To disable/hide blocks, just comment them with prepending '#'
+##	Available options:
+##		- 'transparent' - flags this block as transparent, so that solid blocks below are rendered
+##	
+##	BlockID,Name,texture-Index,AARRGGBB-hex-color,additional options
+
+# 0,Air,0,00ffffff,transparent
 1,Stone,2,ff7d7d7d
 2,Grass,1,ff75b049
 3,Dirt,3,ff856042

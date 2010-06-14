@@ -101,7 +101,6 @@ bool MainWindow::loadBlocks(const QString& blockFile, const QString& textureFile
                 QString additional = info.at(4);
 
                 transparent = additional.contains("transparent");
-                disabled = additional.contains("disabled");
             }
 
             BlockInfo *block = new BlockInfo();

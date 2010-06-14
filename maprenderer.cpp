@@ -95,7 +95,7 @@ void MapRenderer::run()
 
 
                 // No block? try next y-layer
-                if(!block || block->disabled)
+                if(!block)
                     continue;
 
                 // If the block is transparent, draw the next solid one
@@ -104,7 +104,7 @@ void MapRenderer::run()
                         char blockID2 = level->block(x + xOffset, y2, z + zOffset);
                         BlockInfo *block2 = blockTable.value(blockID2, 0);
 
-                        if(block2 && !block2->disabled && !block2->transparent) {
+                        if(block2 && !block2->transparent) {
                             qreal depth = qreal(y-yMin)/(yMax-yMin);
                             renderBlock(painter, block2, x, z, details, depth);
                             break;
@@ -112,7 +112,7 @@ void MapRenderer::run()
                     }
                 }
 
-                qreal depth = qreal(y-yMin)/(yMax-yMin);
+                qreal depth = 1. - qreal(y-yMin)/(yMax-yMin);
                 renderBlock(painter, block, x, z, details, depth);
                 break;
             }
