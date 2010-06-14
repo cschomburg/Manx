@@ -21,7 +21,7 @@ public:
 
     void setDepth(int depth = -1);
     void setLayer(int layer = -1);
-    void setDetails(int details = 0);
+    void setDetails(bool details);
 
     void run();
 
@@ -40,7 +40,7 @@ private:
 
     int m_depth;
     int m_layer;
-    int m_details;
+    bool m_details;
 };
 
 #endif // MAPRENDERER_H

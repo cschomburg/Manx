@@ -10,7 +10,7 @@ MapRenderer::MapRenderer(QObject *parent) :
 {
     m_layer = -1;
     m_depth = -1;
-    m_details = 0;
+    m_details = false;
 }
 
 void MapRenderer::setBlockInfoTable(const BlockInfoTable &blockTable)
@@ -33,7 +33,7 @@ void MapRenderer::setLayer(int layer)
     m_layer = layer;
 }
 
-void MapRenderer::setDetails(int details)
+void MapRenderer::setDetails(bool details)
 {
     m_details = details;
 }
@@ -56,7 +56,7 @@ void MapRenderer::run()
 
     int layer = m_layer;
     int depth = m_depth;
-    int details = m_details;
+    bool details = m_details;
     BlockInfoTable blockTable = m_blockTable;
 
     // Calculate variables
@@ -72,16 +72,16 @@ void MapRenderer::run()
     int zOffset = drawRect.top();
 
     QImage image;
-    if(details == 1)
-        image = QImage(viewport.size() * 8, QImage::Format_ARGB32);
+    if(details)
+        image = QImage(viewport.size() * 16, QImage::Format_ARGB32);
     else
         image = QImage(viewport.size(), QImage::Format_ARGB32);
     image.fill(Qt::transparent);
 
     QPainter painter(&image);
 
-    if(details == 1)
-        painter.scale(8, 8);
+    if(details)
+        painter.scale(16, 16);
 
     int yMax = qMin(level->height(), layer);
     int yMin = qMax(0, layer-depth);
@@ -129,7 +129,7 @@ bool MapRenderer::renderBlock(QPainter &painter, BlockInfo *block, int x, int z,
     if(!block)
         return false;
 
-    if(details == 1)
+    if(details)
         painter.drawImage(QRect(x, z, 1, 1), block->texture);
     else
         painter.fillRect(x, z, 1, 1, block->color);

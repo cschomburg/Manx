@@ -7,8 +7,8 @@
 5,Wood,5,ff9c7f4e
 6,Sapling (Decorations),16,00ffffff,transparent
 7,Adminium (Bedrock),18,ff535353
-8,Water,15,808ba8ff,transparent
-9,Stationary water,15,808ba8ff,transparent
+8,Water,15,80265cff,transparent
+9,Stationary water,15,80265cff,transparent
 10,Lava,31,fff54100
 11,Stationary lava,31,fff54100
 12,Sand,19,ffd9d29e
@@ -51,7 +51,7 @@
 49,Obsidian,38,ff14121d
 50,Torch,81,00ffffff,transparent
 51,Fire block,31,fff54100
-52,Infinite water source,15,808ba8ff,transparent
+52,Infinite water source,15,80265cff,transparent
 53,Infinite lava source,31,fff54100
 54,Chest,26,9a7d4d
 55,Gear,62,00ffffff,transparent

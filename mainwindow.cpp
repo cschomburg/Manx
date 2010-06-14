@@ -131,7 +131,7 @@ MinecraftLevel * MainWindow::level() const { return m_level; }
 
 void MainWindow::openFile()
 {
-    QString filePath = QFileDialog::getOpenFileName(this, tr("Open File"), "./", tr("Minecraft Level (*.mclevel *.nbt level.dat);;All Files (*)"));
+    QString filePath = QFileDialog::getOpenFileName(this, tr("Open File"), "./", tr("Minecraft Level (*.mclevel *.nbt *.dat);;All Files (*)"));
 
     if(m_tag)
         delete m_tag;
@@ -159,6 +159,9 @@ void MainWindow::openFile()
     if(LevelInDev::isValid(m_qTag)) {
         m_level = new LevelInDev(m_qTag);
         statusBar()->showMessage(tr("Found InDev level file!"));
+    } else if(LevelInfDevChunk::isValid(m_qTag)) {
+        m_level = new LevelInfDevChunk(m_qTag);
+        statusBar()->showMessage(tr("Found InfDev chunk file!"));
     }
 
     emit levelChanged(m_level);
@@ -179,10 +182,9 @@ void MainWindow::exportImage()
     statusBar()->showMessage(tr("Rendering started."));
 
     ui->btnExport->setEnabled(false);
-    ui->progressExport->setEnabled(true);
 
     renderer()->setBlockInfoTable(blocks());
-    renderer()->setDetails(0);
+    renderer()->setDetails(ui->checkDetails->isChecked());
     renderer()->setLevel(level());
     renderer()->render();
 }
@@ -192,8 +194,6 @@ void MainWindow::saveImage(const QImage &image)
     image.save("level.png");
 
     ui->btnExport->setEnabled(true);
-    ui->progressExport->setValue(0);
-    ui->progressExport->setEnabled(false);
 
     statusBar()->showMessage(tr("Rendering complete. Saved as level.png."));
 }

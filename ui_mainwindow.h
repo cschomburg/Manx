@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Jun 14 00:47:52 2010
+** Created: Mon Jun 14 02:33:39 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QCheckBox>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
@@ -44,6 +45,8 @@ public:
     QPushButton *btnOpen;
     QPushButton *btnExport;
     QProgressBar *progressExport;
+    QCheckBox *checkDetails;
+    QLabel *label_3;
     QMenuBar *menuBar;
     QMenu *menu_File;
     QMenu *menu_Map;
@@ -102,10 +105,17 @@ public:
         btnExport->setMinimumSize(QSize(0, 0));
         progressExport = new QProgressBar(tab);
         progressExport->setObjectName(QString::fromUtf8("progressExport"));
-        progressExport->setEnabled(false);
-        progressExport->setGeometry(QRect(260, 120, 191, 21));
+        progressExport->setEnabled(true);
+        progressExport->setGeometry(QRect(500, 80, 191, 21));
         progressExport->setMaximum(100);
         progressExport->setValue(0);
+        checkDetails = new QCheckBox(tab);
+        checkDetails->setObjectName(QString::fromUtf8("checkDetails"));
+        checkDetails->setGeometry(QRect(290, 130, 131, 21));
+        label_3 = new QLabel(tab);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(580, 10, 38, 48));
+        label_3->setFont(font);
         tabWidget->addTab(tab, QString());
 
         verticalLayout->addWidget(tabWidget);
@@ -156,7 +166,19 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "2.", 0, QApplication::UnicodeUTF8));
         btnOpen->setText(QApplication::translate("MainWindow", "Open Minecraft Level", 0, QApplication::UnicodeUTF8));
         btnExport->setText(QApplication::translate("MainWindow", "Export Map to Image", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Welcome", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        checkDetails->setToolTip(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">With this option, the map will be rendered with <span style=\" font-weight:600;\">textures</span> instead of pixels.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The map will be <span style=\" font-weight:600;\">16*16 times larger</span> and much more <span style=\" font-weight:600;\">slowly</span> to render!</p></body></html"
+                        ">", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+        checkDetails->setText(QApplication::translate("MainWindow", "Detailed Textures", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainWindow", "3.", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Exporter", 0, QApplication::UnicodeUTF8));
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", 0, QApplication::UnicodeUTF8));
         menu_Map->setTitle(QApplication::translate("MainWindow", "&Map", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     qnbttag.cpp \
     nbtreader.cpp \
     level/levelindev.cpp \
-    maprenderer.cpp
+    maprenderer.cpp \
+    level/levelinfdevchunk.cpp
 HEADERS += mainwindow.h \
     nbttag/nbttag.h \
     nbttag/nbttagbyte.h \
@@ -41,5 +42,6 @@ HEADERS += mainwindow.h \
     level/levelindev.h \
     blockinfo.h \
     level/levels.h \
-    maprenderer.h
+    maprenderer.h \
+    level/levelinfdevchunk.h
 FORMS += mainwindow.ui
