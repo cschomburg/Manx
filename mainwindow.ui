@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -181,6 +181,11 @@ p, li { white-space: pre-wrap; }
          <string>3.</string>
         </property>
        </widget>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Map Viewer</string>
+       </attribute>
       </widget>
      </widget>
     </item>

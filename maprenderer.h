@@ -16,12 +16,14 @@ public:
     explicit MapRenderer(QObject *parent = 0);
 
     void render(const QRect& viewport = QRect());
-    void setLevel(MinecraftLevel *level);
-    void setBlockInfoTable(const BlockInfoTable& blockTable);
 
     void setDepth(int depth = -1);
     void setLayer(int layer = -1);
     void setDetails(bool details);
+
+public slots:
+    void setLevel(MinecraftLevel *level);
+    void setBlockInfoTable(const BlockInfoTable& blockTable);
 
     void run();
 

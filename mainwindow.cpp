@@ -10,14 +10,13 @@
 #include "level/levels.h"
 #include "maprenderer.h"
 
+#include "mapwidget.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    QString appPath = qApp->applicationDirPath();
-    loadBlocks(appPath + "/files/blocks.txt", appPath + "/files/terrain.png");
 
     m_tag = 0;
     m_qTag = 0;
@@ -34,6 +33,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(levelChanged(MinecraftLevel*)), this, SLOT(onLevelChanged()));
     connect(renderer(), SIGNAL(renderedImage(QImage,QRect)), this, SLOT(saveImage(QImage)));
     connect(renderer(), SIGNAL(progressChanged(float)), this, SLOT(progressUpdate(float)));
+
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(new MapWidget(this));
+    ui->tab_2->setLayout(layout);
+
+    QString appPath = qApp->applicationDirPath();
+    loadBlocks(appPath + "/files/blocks.txt", appPath + "/files/terrain.png");
 }
 
 MainWindow::~MainWindow()

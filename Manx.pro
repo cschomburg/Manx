@@ -22,7 +22,9 @@ SOURCES += main.cpp \
     nbtreader.cpp \
     level/levelindev.cpp \
     maprenderer.cpp \
-    level/levelinfdevchunk.cpp
+    level/levelinfdevchunk.cpp \
+    mapviewer.cpp \
+    mapwidget.cpp
 HEADERS += mainwindow.h \
     nbttag/nbttag.h \
     nbttag/nbttagbyte.h \
@@ -43,5 +45,7 @@ HEADERS += mainwindow.h \
     blockinfo.h \
     level/levels.h \
     maprenderer.h \
-    level/levelinfdevchunk.h
+    level/levelinfdevchunk.h \
+    mapviewer.h \
+    mapwidget.h
 FORMS += mainwindow.ui

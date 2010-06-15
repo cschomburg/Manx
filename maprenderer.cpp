@@ -8,6 +8,7 @@
 MapRenderer::MapRenderer(QObject *parent) :
     QThread(parent)
 {
+    m_level = 0;
     m_layer = -1;
     m_depth = -1;
     m_details = false;
@@ -48,6 +49,9 @@ void MapRenderer::render(const QRect& viewport)
 
 void MapRenderer::run()
 {
+    if(!m_level)
+        return;
+
     // Copy member variables
     // We're running threaded, after all
     MinecraftLevel *level = m_level;

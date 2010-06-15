@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Jun 14 17:22:34 2010
+** Created: Tue Jun 15 00:31:15 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -47,6 +47,7 @@ public:
     QProgressBar *progressExport;
     QCheckBox *checkDetails;
     QLabel *label_3;
+    QWidget *tab_2;
     QMenuBar *menuBar;
     QMenu *menu_File;
     QToolBar *mainToolBar;
@@ -116,6 +117,9 @@ public:
         label_3->setGeometry(QRect(580, 10, 38, 48));
         label_3->setFont(font);
         tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        tabWidget->addTab(tab_2, QString());
 
         verticalLayout->addWidget(tabWidget);
 
@@ -139,7 +143,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -173,6 +177,7 @@ public:
         checkDetails->setText(QApplication::translate("MainWindow", "Detailed Textures", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWindow", "3.", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Exporter", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Map Viewer", 0, QApplication::UnicodeUTF8));
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
